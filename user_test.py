@@ -1,5 +1,6 @@
 import unittest
 from user import User
+from credentials import Credentials
 
 class TestUser(unittest.TestCase):
      '''
@@ -19,6 +20,7 @@ class TestUser(unittest.TestCase):
         tearDown method that does clean up after each test case has run.
         '''
         User.user_list = []
+        Credentials.credentials_list = []
 
      def test_init(self):
          '''
@@ -47,7 +49,18 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
-     
+     def test_find_user_by_email(self):
+        '''
+        Test to check if we can find a user by email and display information
+        '''
+        self.new_user.save_user()
+        test_user = User("Test","user","test@user.com","0712345")
+        test_user.save_user()
+
+        found_user = User.find_by_email("test@user.com")
+
+        self.assertEqual(found_user.password,test_contact.email)
+
 
 if __name__ == '__main__':
     unittest.main()

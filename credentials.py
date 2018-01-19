@@ -1,3 +1,4 @@
+import pyperclip
 class Credentials:
     """
     Class that generates new instances of users.
@@ -13,3 +14,8 @@ class Credentials:
         save_user method saves credentials objects into credentials_list
         """
         Credentials.credentials_list.append(self)
+
+    @classmethod
+    def copy_email(cls,email)
+    user_found = User.find_by_email(email)
+    pyperclip.copy(user_found.email)

@@ -1,6 +1,7 @@
 import unittest
 from user import User
 from credentials import Credentials
+import pyperclip
 
 class TestUser(unittest.TestCase):
      '''
@@ -60,7 +61,8 @@ class TestUser(unittest.TestCase):
         user_exists = User.user_exists("test@user.com")
         self.assertTrue(user_exists)
 
-        
+
+
 
 if __name__ == '__main__':
     unittest.main()

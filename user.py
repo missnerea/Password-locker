@@ -15,12 +15,3 @@ class User:
        save_user method saves user objects into user_list
        """
        User.user_list.append(self)
-
-@classmethod
-    def find_by_email(cls,email):
-        """
-         Method that takes in the email and returns a user that matches that email
-        """
-        for user in cls.user_list:
-            if user.email == email:
-                return user 

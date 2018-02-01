@@ -65,10 +65,10 @@ class TestUser(unittest.TestCase):
         '''
         Test to confirm that we are copying the email address from a found user
         '''
-        self.new_user.save_user()
-        User.copy_email("test@user.com")
+        self.new_credentials.save_credentials()
+        Credentials.copy_email("test@user.com")
 
-        self.assertEqual(self.new_user.email,pyperclip.paste())
+        self.assertEqual(self.new_credentials.email,pyperclip.paste())
 
 
 if __name__ == '__main__':

@@ -16,6 +16,6 @@ class Credentials:
         Credentials.credentials_list.append(self)
 
     @classmethod
-    def copy_email(cls,email)
-    user_found = User.find_by_email(email)
-    pyperclip.copy(user_found.email)
+    def copy_email(cls,email):
+        credentials_found = Credentials.find_by_email(email)
+        pyperclip.copy(credentials_found.email)

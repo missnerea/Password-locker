@@ -1,30 +1,66 @@
+from credential import Credential
+
 class User:
-    """
-    Class that generates new instances of users.
-    """
+    '''
+    Test class that defines test cases for the Credential Class behaviours
+    Args:
+    unittest.TestCase : Test case class that helps create test cases
+    '''
+
+    # Empty list of users
     user_list = []
 
-    def __init__(self,first_name,last_name,email,password):
-        self.first_name= first_name
-        self.last_name= last_name
-        self.email= email
-        self.password= password
+    def __init__(self, user_name, user_password):
+        '''
+            Method to intanciate the variable
+        '''
+        self.user_name = user_name
+        self.user_password = user_password
 
     def save_user(self):
-        """
-        save_user method saves user objects into user_list
-        """
-        User.user_list.append(self)
-    @classmethod
-    def user_exists(cls,email):
         '''
-        Method that checks if a user exists from the user list.
-        Args:
-            email: email to search if it exists
-        Returns :
-            Boolean: True or false depending if the user exists
+            Method to save the user account
+        '''
+        User.user_list.append(self)
+
+    @classmethod
+    def find_credential(cls, name):
+        '''
+            Method to check if credential exist
+        '''
+        # Search for the user with the inputted  name in the user list
+        for credential in Credential.credential_list:
+            if credential.credential_name == name:
+                return True
+
+        return False
+
+    @classmethod
+    def log_in(cls, name, password):
+        '''
+            Method to enable the user to log in
+        '''
+        # Search for the user in the user list
+        for user in cls.user_list:
+            if user.user_name == name and user.user_password == password:
+                return Credential.credential_list
+
+        return False
+
+    @classmethod
+    def display_user(cls):
+        '''
+            allows for display of the user list
+        '''
+        return cls.user_list
+
+    @classmethod
+    def user_exist(cls, name):
+        '''
+            checks if the user exists
         '''
         for user in cls.user_list:
-            if user.email == email:
+            if user.user_name == name:
                 return True
+
         return False

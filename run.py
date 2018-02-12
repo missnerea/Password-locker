@@ -2,7 +2,7 @@
 
 import random
 from user import User
-from credentials import Credentials
+from credential import Credential
 
 def create_user(first_name,last_name,email,password):
     '''
@@ -145,13 +145,13 @@ def main():
             print("-"*10)# prints a ten dotted-line
 
             print("User name ...")
-            user_name = input()
+            name = input()
 
             print("Password ...")
-            user_password = input()
+            password = input()
 
             # Create and save new user
-            save_users( create_user( user_name, user_password) )
+            save_users( create_user( user_name,user_password) )
 
             print("\n")
             print(f"{user_name} Welcome to Password Locker")
@@ -168,7 +168,7 @@ def main():
                 print("-"*10)
 
                 for user in display_users():
-                    print(f"{user.user_name}")
+                    print(f"{user.name}")
                     print("-"*10)
             else:
                 print("\n")
@@ -182,12 +182,12 @@ def main():
             print("\n")
             print("Log into Password Locker Account")
             print("Enter the user name")
-            user_name = input()
+            name = input()
 
             print("Enter the password")
             user_password = input()
 
-            if user_log_in(user_name,user_password) == None:
+            if user_log_in(user_name , user_password) == None:
                 print("\n")
                 print("Please try again or create an account")
                 print("\n")
@@ -223,7 +223,7 @@ def main():
                         print("-"*10)
 
                         print("Name of the credential ...")
-                        credential_name = input()
+                        name = input()
 
                         print("Password of the credential ...")
                         credential_password = input()
